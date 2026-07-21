@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crypto Bot Pro — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="scanline-overlay"></div>
+
+<header class="topbar">
+    <div class="brand">
+        <span class="brand-mark">◈</span>
+        <div>
+            <h1>CRYPTO BOT <span class="accent">PRO</span></h1>
+            <p class="subtitle">Sinyal multi-strategi &middot; backtest &middot; paper trading</p>
+        </div>
+    </div>
+    <div class="status-cluster">
+        <div class="status-pill" id="waStatus"><span class="dot"></span><span>WhatsApp: memuat...</span></div>
+        <div class="clock" id="clock">--:--:--</div>
+    </div>
+</header>
+
+<div class="ticker-strip" id="tickerStrip">
+    <div class="ticker-track" id="tickerTrack">Memuat harga...</div>
+</div>
+
+<main class="layout">
+    <section class="panel signals-panel">
+        <div class="panel-head">
+            <h2>Sinyal Watchlist</h2>
+            <div class="mode-toggle" id="modeToggle">
+                <button data-mode="trader" class="active">TRADER</button>
+                <button data-mode="investor">INVESTOR</button>
+            </div>
+        </div>
+        <div class="table-wrap">
+            <table id="signalsTable">
+                <thead>
+                    <tr>
+                        <th>Aset</th>
+                        <th>Harga</th>
+                        <th>24j</th>
+                        <th>Sinyal</th>
+                        <th>Kekuatan</th>
+                        <th>RSI</th>
+                    </tr>
+                </thead>
+                <tbody id="signalsBody">
+                    <tr><td colspan="6" class="empty">Memuat data market...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <aside class="side-col">
+        <section class="panel">
+            <div class="panel-head"><h2>Paper Trading Leaderboard</h2></div>
+            <div class="table-wrap">
+                <table id="leaderboardTable">
+                    <thead><tr><th>User</th><th>Equity</th><th>Return</th><th>Open</th></tr></thead>
+                    <tbody id="leaderboardBody"><tr><td colspan="4" class="empty">Belum ada akun paper trading.</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel backtest-panel">
+            <div class="panel-head"><h2>Jalankan Backtest</h2></div>
+            <form id="backtestForm">
+                <label>Aset
+                    <select id="btAsset"></select>
+                </label>
+                <label>Mode
+                    <select id="btMode"><option value="trader">Trader</option><option value="investor">Investor</option></select>
+                </label>
+                <label>Hari
+                    <input type="number" id="btDays" value="30" min="3" max="180" />
+                </label>
+                <label>Strategi
+                    <select id="btStrategy">
+                        <option value="">Konsensus (semua)</option>
+                        <option value="trend">Trend Following</option>
+                        <option value="meanreversion">Mean Reversion</option>
+                        <option value="breakout">Breakout</option>
+                        <option value="momentum">Momentum Scalper</option>
+                    </select>
+                </label>
+                <button type="submit">Jalankan</button>
+            </form>
+            <div id="backtestResult" class="backtest-result"></div>
+        </section>
+    </aside>
+</main>
+
+<footer class="foot-note">
+    Data bukan saran keuangan. Bot tidak mengeksekusi order nyata — hanya jurnal, sinyal, dan simulasi paper trading.
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
