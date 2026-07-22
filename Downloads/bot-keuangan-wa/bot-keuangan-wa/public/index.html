@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard Keuangan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <div id="gate" class="gate">
+    <div class="gate-card glass">
+      <div class="gate-icon">🔒</div>
+      <h1>Tautan tidak ditemukan</h1>
+      <p>Buka dashboard ini lewat tautan pribadi yang dikirim bot ke WhatsApp-mu — ketik <code>dashboard</code> di chat.</p>
+    </div>
+  </div>
+
+  <main id="app" class="app hidden">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◈</span>
+        <div>
+          <div class="brand-title">Keuangan<span class="accent">Ku</span></div>
+          <div class="brand-sub" id="ownerLabel">—</div>
+        </div>
+      </div>
+      <div class="score-chip" id="scoreChip">
+        <span class="score-value" id="scoreValue">--</span>
+        <span class="score-label">Skor Kesehatan</span>
+      </div>
+    </header>
+
+    <section class="hero glass">
+      <div class="hero-main">
+        <div class="hero-eyebrow" id="riskEyebrow">Memuat data…</div>
+        <div class="hero-figure" id="netFigure">Rp0</div>
+        <div class="hero-caption" id="focusCaption">Menyusun fokus aksi hari ini…</div>
+      </div>
+      <div class="hero-split">
+        <div class="split-item in">
+          <span class="split-label">Pemasukan</span>
+          <span class="split-value" id="incomeValue">Rp0</span>
+        </div>
+        <div class="split-divider"></div>
+        <div class="split-item out">
+          <span class="split-label">Pengeluaran</span>
+          <span class="split-value" id="expenseValue">Rp0</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel glass wallets">
+        <h2>Saldo Dompet</h2>
+        <div id="walletsList" class="wallet-list"></div>
+      </div>
+
+      <div class="panel glass budgets">
+        <h2>Monitoring Budget</h2>
+        <div id="budgetsList" class="budget-list"></div>
+      </div>
+
+      <div class="panel glass chart-panel">
+        <h2>Komposisi Pengeluaran</h2>
+        <svg id="donutChart" viewBox="0 0 220 220" class="donut"></svg>
+        <div id="donutLegend" class="donut-legend"></div>
+      </div>
+
+      <div class="panel glass transactions">
+        <div class="panel-head">
+          <h2>Transaksi Terbaru</h2>
+          <div class="period-tabs" id="periodTabs">
+            <button data-period="bulan ini" class="tab active">Bulan Ini</button>
+            <button data-period="bulan lalu" class="tab">Bulan Lalu</button>
+            <button data-period="semua" class="tab">Semua</button>
+          </div>
+        </div>
+        <div id="txList" class="tx-list"></div>
+      </div>
+    </section>
+
+    <footer class="footnote">
+      Data tersinkron langsung dari Google Sheets kamu · diperbarui saat halaman dimuat
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
